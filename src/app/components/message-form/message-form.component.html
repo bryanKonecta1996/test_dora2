@@ -1,0 +1,20 @@
+<!--<div class="chatcontrol">
+    <div class="input-field col s6">
+          <div class="message-box">
+          <i class="material-icons prefix" id="btn-send">send</i>
+          <input id="icon_prefix" type="text" class="validate message-input" (keyup.enter)="sendMessage()" [(ngModel)]="message.content">
+          <label for="icon_prefix">Escribe algo..</label>
+        </div>
+    
+        </div>
+ 
+</div>-->
+<!-- <input type="text" class="form-control chatinput" (keyup.enter)="sendMessage()" [(ngModel)]="message.content"/>
+  <button class="btn btn-default blue darken-4 sendbtn" (click)="sendMessage()">Enviar <i class="material-icons">send</i></button>-->
+
+ <div class="message-box">
+     <input type="hidden" id="data_send" (click)="guardarData($event)" value="message.content">
+    <textarea type="text" class="message-input"  placeholder="Escribe algo..." (keyup.enter)="sendMessage()" [(ngModel)]="message.content"></textarea>
+    <button type="submit" class="message-submit" (click)="sendMessage()">Enviar</button>
+  </div>
+<div class="bg"></div>

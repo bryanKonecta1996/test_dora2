@@ -1,0 +1,63 @@
+
+ <!--
+        Condicionales
+    0. Texto plano    
+    1. Enlace
+    2. Boton inicial ahorro y credito
+    3. Boton enlace a pestaña nueva
+    5. Boton Texto
+-->
+
+<ng-template [ngIf]="message.avatar == 'bot' && message.type!=4">
+<div class="message new mess" ><figure class="avatar"><img src="assets/images/DORA.png" /></figure>
+    
+      <ng-template [ngIf]="message.type == 1"><a class="waves-effect waves-light btn" href="#" (click)="pruebaAlerta()">{{message.content}}</a>
+      </ng-template>
+      <ng-template [ngIf]="message.type == 0">{{message.content}}
+      </ng-template>
+       <ng-template [ngIf]="message.type == 2"><a href="#" class="btn default btn_custom" (click)="tSolicitud('ahorro')">Ahorros</a> / <a href="#"  class="btn default btn_custom" (click)="tSolicitud('credito')">Creditos</a>
+      </ng-template>
+    
+    <ng-template [ngIf]="message.type == 3"><a  target="_blank" class="waves-effect waves-light btn  btn_custom" href="{{message.content}}" >{{message.name}}</a>
+      </ng-template>
+    
+    <ng-template [ngIf]="message.type == 5"><a href="#" class="btn default btn_custom" (click)="tSolicitud(message.content)">{{message.content}}</a>
+      </ng-template>
+    <ng-template [ngIf]="message.type == 6"><div [innerHTML]='message.content'></div>
+      </ng-template>
+   <div class="timestamp">{{message.timestamp}}</div>
+  </div>
+</ng-template>
+<ng-template [ngIf]="message.type == 4">
+    <!--Loading-->
+    <div class="message loading new"><figure class="avatar"><img src="assets/images/DORA.png" /></figure><span></span></div>
+    <!--Fin loading-->
+    </ng-template>
+<ng-template [ngIf]="message.avatar == 'user'">
+    <div class="message message-personal new">
+      <ng-template [ngIf]="message.type == 1"><a class="waves-effect waves-light btn" href="#" (click)="pruebaAlerta()">{{message.content}}</a>
+      </ng-template>
+      <ng-template [ngIf]="message.type == 0">{{message.content}}
+      </ng-template>
+     
+        <div class="timestamp">{{message.timestamp}}</div>
+  </div>
+</ng-template>
+
+
+<!--<li class="list-group-item">
+  <img [src]="message.avatar" class="avatar"/>
+  <div class="message">
+      <ng-template [ngIf]="message.type == 1"><a class="waves-effect waves-light btn" href="#" (click)="pruebaAlerta()">{{message.content}}</a>
+      </ng-template>
+      <ng-template [ngIf]="message.type == 0">{{message.content}}
+      </ng-template>
+       <ng-template [ngIf]="message.type == 2"><a href="#" (click)="preguntar('ahorro')">Ahorros</a> / <a href="#" (click)="preguntar('credito')">Creditos</a>
+      </ng-template>
+   
+  </div>
+  <div class="timeform">
+    <i class="fa fa-clock-o" aria-hidden="true"></i> <span class="timestamp">at {{message.timestamp | date : 'dd/MM/yyyy' }}</span>
+  </div>
+</li>-->
+
